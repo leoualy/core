@@ -148,7 +148,7 @@ jobs:
           fi
 
           TYPE="${{ github.event_name }}"
-          if [[ "${TYPE}" == "pull_request" || "${BRANCH}" =~ '^master$|^release-.*|^test-.*' || "${COMMIT_MESSG}" =~ '\[github\]|\[github postgres\]|\[github mysql\]|\[github oracle\]|\[github mssql\]|\[github unit]\') ]]; then
+          if [[ "${TYPE}" == "pull_request" || "${BRANCH}" =~ '^master$|^release-.*|^test-.*' || "${COMMIT_MESSG}" =~ '\[github\]|\[github postgres\]|\[github mysql\]|\[github oracle\]|\[github mssql\]|\[github unit]\' ]]; then
             echo ::set-env name=globalRun::true
           else
             echo ::set-env name=globalRun::false

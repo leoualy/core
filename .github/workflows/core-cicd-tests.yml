@@ -52,29 +52,25 @@ jobs:
             echo ::set-env name=notPrAndSpecialBranch::false
           fi
 
-          echo "OJO:>> NOT_PR_AND_SPECIAL_BRANCH=${NOT_PR_AND_SPECIAL_BRANCH}"
-          echo "OJO:>> BRANCH=${BRANCH}"
-          echo "OJO:>> COMMIT_MESSG=${COMMIT_MESSG}"
-
           if [[ (! "${COMMIT_MESSG}" =~ '\[github mysql\]|\[github oracle\]|\[github mssql\]|\[github unit]\') || "${COMMIT_MESSG}" =~ '\[travis\]|\[travis postgres\]' ]]; then
             echo ::set-env name=isPostgres::true
           else
             echo ::set-env name=isPostgres::false
           fi
 
-          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} || "${COMMIT_MESSG}" =~ '\[github\]|\[github mysql\]' ]]; then
+          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} == true || "${COMMIT_MESSG}" =~ '\[github\]|\[github mysql\]' ]]; then
             echo ::set-env name=isMysql::true
           else
             echo ::set-env name=isMysql::false
           fi
 
-          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} || "${COMMIT_MESSG}" =~ '\[github\]|\[github oracle\]' ]]; then
+          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} == true || "${COMMIT_MESSG}" =~ '\[github\]|\[github oracle\]' ]]; then
             echo ::set-env name=isOracle::true
           else
             echo ::set-env name=isOracle::false
           fi
 
-          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} || "${COMMIT_MESSG}" =~ '\[github\]|\[github mssql\]' ]]; then
+          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} == true || "${COMMIT_MESSG}" =~ '\[github\]|\[github mssql\]' ]]; then
             echo ::set-env name=isMssql::true
           else
             echo ::set-env name=isMssql::false
@@ -165,29 +161,25 @@ jobs:
             echo ::set-env name=notPrAndSpecialBranch::false
           fi
 
-          echo "OJO:>> NOT_PR_AND_SPECIAL_BRANCH=${NOT_PR_AND_SPECIAL_BRANCH}"
-          echo "OJO:>> BRANCH=${BRANCH}"
-          echo "OJO:>> COMMIT_MESSG=${COMMIT_MESSG}"
-
           if [[ (! "${COMMIT_MESSG}" =~ '\[github mysql\]|\[github oracle\]|\[github mssql\]|\[github unit]\') || "${COMMIT_MESSG}" =~ '\[travis\]|\[travis postgres\]' ]]; then
             echo ::set-env name=isPostgres::true
           else
             echo ::set-env name=isPostgres::false
           fi
 
-          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} || "${COMMIT_MESSG}" =~ '\[github\]|\[github mysql\]' ]]; then
+          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} == true || "${COMMIT_MESSG}" =~ '\[github\]|\[github mysql\]' ]]; then
             echo ::set-env name=isMysql::true
           else
             echo ::set-env name=isMysql::false
           fi
 
-          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} || "${COMMIT_MESSG}" =~ '\[github\]|\[github oracle\]' ]]; then
+          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} == true || "${COMMIT_MESSG}" =~ '\[github\]|\[github oracle\]' ]]; then
             echo ::set-env name=isOracle::true
           else
             echo ::set-env name=isOracle::false
           fi
 
-          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} || "${COMMIT_MESSG}" =~ '\[github\]|\[github mssql\]' ]]; then
+          if [[ ${NOT_PR_AND_SPECIAL_BRANCH} == true || "${COMMIT_MESSG}" =~ '\[github\]|\[github mssql\]' ]]; then
             echo ::set-env name=isMssql::true
           else
             echo ::set-env name=isMssql::false

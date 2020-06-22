@@ -52,6 +52,10 @@ jobs:
             echo ::set-env name=notPrAndSpecialBranch::false
           fi
 
+          echo "OJO:>> NOT_PR_AND_SPECIAL_BRANCH=${NOT_PR_AND_SPECIAL_BRANCH}"
+          echo "OJO:>> BRANCH=${BRANCH}"
+          echo "OJO:>> COMMIT_MESSG=${COMMIT_MESSG}"
+
           if [[ (! "${COMMIT_MESSG}" =~ '\[github mysql\]|\[github oracle\]|\[github mssql\]|\[github unit]\') || "${COMMIT_MESSG}" =~ '\[travis\]|\[travis postgres\]' ]]; then
             echo ::set-env name=isPostgres::true
           else
@@ -160,6 +164,10 @@ jobs:
             NOT_PR_AND_SPECIAL_BRANCH=false
             echo ::set-env name=notPrAndSpecialBranch::false
           fi
+
+          echo "OJO:>> NOT_PR_AND_SPECIAL_BRANCH=${NOT_PR_AND_SPECIAL_BRANCH}"
+          echo "OJO:>> BRANCH=${BRANCH}"
+          echo "OJO:>> COMMIT_MESSG=${COMMIT_MESSG}"
 
           if [[ (! "${COMMIT_MESSG}" =~ '\[github mysql\]|\[github oracle\]|\[github mssql\]|\[github unit]\') || "${COMMIT_MESSG}" =~ '\[travis\]|\[travis postgres\]' ]]; then
             echo ::set-env name=isPostgres::true
